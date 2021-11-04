@@ -1,0 +1,71 @@
+<html>
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+
+    <head>
+        <link rel="stylesheet" href="styles/styles.css">
+
+        <!--
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        -->
+
+        <title>Testing Generador de partituras</title>
+        <script src="https://unpkg.com/opensheetmusicdisplay@0.8.3/build/opensheetmusicdisplay.min.js"></script>
+        <script type="module" src="parametrosGenerativos.js"></script>
+        <script type="module"  src="GeneradorDePartiturasXML.js" ></script>
+    </head>
+
+    <body onload="cargarDatos();"> 
+        <h1>  Generador de solfeos (con parámetros)</h1>
+        <button type="button" id="generar" name="generar" onclick="GenerarSolfeo();">Generar!</button>
+        <input type="number" id="cantidadDeCompases" name="cantidadDeCompases" value="1" min="1" style="width:50px;">Compases</input>
+        
+        <input type="checkbox" id="esPercusion" name="esPercusion" onclick="togglePerc();" unchecked>Percusión</input>
+        <select name="tiempos" id="tiempos">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4" selected>4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+        </select>
+
+        <select name="unidadDeTiempo" id="unidadDeTiempo">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="4" selected>4</option>
+            <option value="8">8</option>
+            <option value="16">16</option>
+            <option value="32">32</option>
+           </select ><br>
+
+       <div class="container">
+           <label for="SetAlturas">Set alturas: </label> <input id="SetAlturas" name="SetAlturas" onchange="cambioAlturas()"></input>
+           <br>
+           <label for="SetRitmos">Set ritmos: </label> <input id="SetRitmos" name="SetRitmos" onchange="cambioRitmos()"></input>
+       </div>
+
+        </br>
+        <div class="container">
+            <div id="test" style="width: 100%" ></div>
+        </div>
+        <hr></br>
+
+        <div>
+            <code id="codigoXML">
+            </code>
+        </div>
+
+        <footer>
+            Desarrollado por Diego de la Fuente (2021)
+        </footer>
+
+
+    </body>
+
+</html>
